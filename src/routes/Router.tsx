@@ -1,11 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "@/components/NavBar";
+import FooterBar from "@/components/FooterBar";
 import HomePage from "@/pages/HomePage";
 import DashboardPage from "@/pages/DashboardPage";
 import NotFoundPage from "@/pages/NotFoundPage";
-import FooterBar from "@/components/FooterBar";
+import UnauthorizedPage from "@/pages/UnauthorizedPage";
+import DefaultBadgePage from "@/pages/DefaultBadgePage";
+
+import { RootState } from "@/redux/store";
+import { useSelector } from "react-redux";
 
 const Router: React.FC = () => {
+  const user = useSelector((state: RootState) => state.auth.user);
   return (
     <BrowserRouter>
       <NavBar testval={0} />
@@ -13,7 +19,11 @@ const Router: React.FC = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/default-badges" element={<DefaultBadgePage />} />
+          <Route
+            path="/dashboard"
+            element={user ? <DashboardPage /> : <UnauthorizedPage />}
+          />
         </Routes>
       </div>
 
