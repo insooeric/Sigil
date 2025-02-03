@@ -13,10 +13,9 @@ interface BadgeItem {
   badgeURL: string;
 }
 
-const backendURL = "https://localhost:32769";
-
 const DashboardPage: React.FC = () => {
   const user = useSelector((state: RootState) => state.auth.user);
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
 
   const [badges, setBadges] = useState<BadgeItem[]>([]);
   const [showAddModal, setShowAddModal] = useState(false);

@@ -7,9 +7,9 @@ interface BadgeItem {
   badgeURL: string;
 }
 
-const backendURL = "https://localhost:32769";
 const DefaultBadgePage: React.FC = () => {
   const [badges, setBadges] = useState<BadgeItem[]>([]);
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     fetchDefaultBadges();
