@@ -11,12 +11,17 @@ import description8_pic from "@/img/description8_pic.png";
 import description9_pic from "@/img/description9_pic.png";
 import description10_pic from "@/img/description10_pic.png";
 import description11_pic from "@/img/description11_pic.png";
+import description12_pic from "@/img/description12_pic.png";
+import description13_pic from "@/img/description13_pic.png";
+import description14_pic from "@/img/description14_pic.png";
 import add_icon from "@/img/add_icon.svg";
 import edit_icon from "@/img/edit_icon.svg";
 import delete_icon from "@/img/delete_icon.svg";
 import copy_icon from "@/img/copy_icon.svg";
 const HomePage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("Intro");
+
+  const imgTagString = `<img src="..." />`;
 
   const options = [
     "Intro",
@@ -127,9 +132,21 @@ const HomePage: React.FC = () => {
             <ol>
               <li>
                 Click <img className="icon" src={copy_icon} alt="copy_icon" />{" "}
-                icon to copy url
+                icon to copy url <br />
+                Note that adding default badge is exactly the same.
                 <br />
-                <img src={description10_pic} />
+                <img src={description12_pic} />
+              </li>
+              <li>
+                Paste url using {imgTagString} tag
+                <br />
+                <img src={description13_pic} />
+              </li>
+              <li>
+                That's it! <br />
+                You can now see the badge in Readme.md.
+                <br />
+                <img src={description14_pic} />
               </li>
             </ol>
           </div>
