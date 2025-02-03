@@ -21,6 +21,8 @@
     text-decoration: none;
     color: rgba(255, 255, 255, 0.87);
   }
+  scrollbar-width: thin;
+  scrollbar-color: gray transparent;
 }
 
 .body-container {
@@ -156,6 +158,8 @@
       overflow-y: auto;
       padding: 0.5rem;
       box-sizing: border-box;
+      scrollbar-width: thin;
+      scrollbar-color: gray transparent;
 
       .content {
         display: none;
@@ -236,6 +240,30 @@
 
     max-width: 800px;
     width: 90%;
+
+    .loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      margin: 0 auto;
+    }
+
+    .loading-animation {
+      width: 50px;
+      height: 50px;
+      animation: rotate 1s linear infinite;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
 
     .badge-main-add {
       width: 100%;
@@ -320,6 +348,21 @@
         justify-content: center;
         width: 100%;
         height: 100%;
+
+        .loading-animation {
+          width: 50px;
+          height: 50px;
+          animation: rotate 1s linear infinite;
+        }
+
+        @keyframes rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
 
         img {
           width: 30px;
@@ -451,10 +494,33 @@
   flex-direction: column;
   align-items: center;
 
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .loading-animation {
+    width: 50px;
+    height: 50px;
+    animation: rotate 1s linear infinite;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .badge-container {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: start;
 
     border-radius: 1rem;
@@ -468,7 +534,18 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      left: 50%;
+      left: 33.33%;
+      width: 1px;
+      background-color: gray;
+      transform: translateX(-50%);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 66.66%;
       width: 1px;
       background-color: gray;
       transform: translateX(-50%);
@@ -492,6 +569,11 @@
 
       .badge-name {
         font-size: 0.8rem;
+        max-width: 100px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: thin;
+        scrollbar-color: gray transparent;
       }
 
       .badge-copy-url {
@@ -586,6 +668,23 @@
         border-radius: 50%;
         margin: 0px 10px;
         box-shadow: 0 0 10px black;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .default-badge-page {
+    .badge-container {
+      grid-template-columns: 1fr 1fr;
+
+      &::before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &::after {
+        display: none;
       }
     }
   }

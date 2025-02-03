@@ -6,6 +6,7 @@ import delete_icon from "@/img/delete_icon.svg";
 import add_icon from "@/img/add_icon.svg";
 import copy_icon from "@/img/copy_icon.svg";
 import img_placeholder_icon from "@/img/img_placeholder_icon.svg";
+import loading_icon from "@/img/loading_icon.svg";
 
 interface BadgeItem {
   userId: string;
@@ -16,6 +17,9 @@ interface BadgeItem {
 const DashboardPage: React.FC = () => {
   const user = useSelector((state: RootState) => state.auth.user);
   const backendURL = import.meta.env.VITE_BACKEND_URL;
+  const [loadingImages, setLoadingImages] = useState<{
+    [key: string]: boolean;
+  }>({});
 
   const [badges, setBadges] = useState<BadgeItem[]>([]);
   const [showAddModal, setShowAddModal] = useState(false);
@@ -30,6 +34,8 @@ const DashboardPage: React.FC = () => {
   const [tempNewName, setTempNewName] = useState("");
 
   const [nameError, setNameError] = useState("");
+
+  const [isFetchingBadges, setIsFetchingBadges] = useState(true);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -50,8 +56,17 @@ const DashboardPage: React.FC = () => {
     }
   }, [selectedFile]);
 
+  const handleImageLoad = (badgeName: string) => {
+    setLoadingImages((prev) => ({ ...prev, [badgeName]: false }));
+  };
+
+  const handleImageError = (badgeName: string) => {
+    setLoadingImages((prev) => ({ ...prev, [badgeName]: false }));
+  };
+
   const fetchBadges = async () => {
     if (!user?.username) return;
+    setIsFetchingBadges(true);
     try {
       const response = await fetch(`${backendURL}/api/Badge/get-all-badge`, {
         method: "POST",
@@ -64,9 +79,20 @@ const DashboardPage: React.FC = () => {
       }
       const data = await response.json();
       setBadges(data.badges || []);
+
+      const initialLoadingState = data.badges.reduce(
+        (acc: { [key: string]: boolean }, badge: BadgeItem) => {
+          acc[badge.badgeName] = true;
+          return acc;
+        },
+        {}
+      );
+      setLoadingImages(initialLoadingState);
     } catch (error) {
       console.error("Error fetching badges:", error);
     }
+
+    setIsFetchingBadges(false);
   };
 
   const handleOpenAddModal = () => {
@@ -248,55 +274,84 @@ const DashboardPage: React.FC = () => {
         <div className="badge-main-add">
           <img src={add_icon} onClick={handleOpenAddModal} />
         </div>
-        {badges.map((badge) => (
-          <div className="badge-item" key={badge.badgeName}>
-            {editingBadgeName === badge.badgeName ? (
-              <div className="rename-area">
-                <input
-                  type="text"
-                  value={tempNewName}
-                  onChange={(e) => setTempNewName(e.target.value)}
-                  autoFocus
-                />
-                <div className="button-panel">
-                  <button onClick={() => handleConfirmRename(badge.badgeName)}>
-                    Save
-                  </button>
-                  <button onClick={handleCancelEditing}>Cancel</button>
-                </div>
-              </div>
-            ) : (
-              <div className="badge-name">
-                <strong>{badge.badgeName}</strong>
-              </div>
-            )}
-
-            <div className="badge-update">
-              {editingBadgeName !== badge.badgeName && (
-                <img
-                  src={edit_icon}
-                  onClick={() => handleStartEditing(badge.badgeName)}
-                />
-              )}
-            </div>
-            <div className="badge-copy-url">
-              <img
-                src={copy_icon}
-                onClick={() => handleCopyClick(badge.badgeURL)}
-                alt="Copy Badge URL"
-              />
-            </div>
-            <div className="badge-preview">
-              <img src={badge.badgeURL} alt="Badge" />
-            </div>
-            <div className="badge-delete">
-              <img
-                src={delete_icon}
-                onClick={() => handleDeleteBadge(badge.badgeName)}
-              />
-            </div>
+        {isFetchingBadges ? (
+          <div className="loading-container">
+            <img
+              src={loading_icon}
+              className="loading-animation"
+              alt="Loading badges..."
+            />
+            <p>Loading badges...</p>
           </div>
-        ))}
+        ) : (
+          badges.map((badge) => (
+            <div className="badge-item" key={badge.badgeName}>
+              {editingBadgeName === badge.badgeName ? (
+                <div className="rename-area">
+                  <input
+                    type="text"
+                    value={tempNewName}
+                    onChange={(e) => setTempNewName(e.target.value)}
+                    autoFocus
+                  />
+                  <div className="button-panel">
+                    <button
+                      onClick={() => handleConfirmRename(badge.badgeName)}
+                    >
+                      Save
+                    </button>
+                    <button onClick={handleCancelEditing}>Cancel</button>
+                  </div>
+                </div>
+              ) : (
+                <div className="badge-name">
+                  <strong>{badge.badgeName}</strong>
+                </div>
+              )}
+
+              <div className="badge-update">
+                {editingBadgeName !== badge.badgeName && (
+                  <img
+                    src={edit_icon}
+                    onClick={() => handleStartEditing(badge.badgeName)}
+                  />
+                )}
+              </div>
+              <div className="badge-copy-url">
+                <img
+                  src={copy_icon}
+                  onClick={() => handleCopyClick(badge.badgeURL)}
+                  alt="Copy Badge URL"
+                />
+              </div>
+              <div className="badge-preview">
+                {loadingImages[badge.badgeName] && (
+                  <img
+                    src={loading_icon}
+                    alt="Loading..."
+                    className="loading-animation"
+                  />
+                )}
+                <img
+                  src={badge.badgeURL}
+                  alt="Badge"
+                  onLoad={() => handleImageLoad(badge.badgeName)}
+                  onError={() => handleImageError(badge.badgeName)}
+                  style={
+                    loadingImages[badge.badgeName] ? { display: "none" } : {}
+                  }
+                />
+              </div>
+
+              <div className="badge-delete">
+                <img
+                  src={delete_icon}
+                  onClick={() => handleDeleteBadge(badge.badgeName)}
+                />
+              </div>
+            </div>
+          ))
+        )}
       </div>
 
       {showAddModal && (

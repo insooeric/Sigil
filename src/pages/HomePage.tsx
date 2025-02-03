@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
     <div className="home-page">
       <div className="banner">
         <img src={home_banner} alt="Home Banner" />
-        <div className="title">Badge Creater</div>
+        <div className="title">Badge Hub</div>
       </div>
       <div className="slogan">Make custom badge and use it!</div>
 
@@ -78,6 +78,7 @@ const HomePage: React.FC = () => {
               <li>
                 Click <img className="icon" src={copy_icon} alt="copy_icon" />{" "}
                 icon to copy url
+                <br />
                 <img src={description11_pic} />
               </li>
             </ul>
@@ -97,6 +98,7 @@ const HomePage: React.FC = () => {
               <li>
                 Click <img className="icon" src={add_icon} alt="add_icon" />{" "}
                 icon
+                <br />
                 <img src={description3_pic} />
               </li>
               <li>
@@ -114,6 +116,7 @@ const HomePage: React.FC = () => {
               <li>
                 Once hitting "Add" button, the Dashboard will display the new
                 badge
+                <br />
                 <img src={description5_pic} />
               </li>
             </ol>
@@ -125,6 +128,7 @@ const HomePage: React.FC = () => {
               <li>
                 Click <img className="icon" src={copy_icon} alt="copy_icon" />{" "}
                 icon to copy url
+                <br />
                 <img src={description10_pic} />
               </li>
             </ol>
@@ -135,30 +139,34 @@ const HomePage: React.FC = () => {
               <li>
                 Click <img className="icon" src={edit_icon} alt="edit_icon" />{" "}
                 icon
+                <br />
                 <img src={description6_pic} />
               </li>
               <li>
                 Change name, then press "Save" button
+                <br />
                 <img src={description7_pic} />
               </li>
               <li>
                 Now, dashboard displays the badge with new name
+                <br />
                 <img src={description8_pic} />
               </li>
             </ol>
           </div>
           <div className={`content ${activeTab === "Delete" ? "active" : ""}`}>
-            {" "}
             <h1>Delete Badge</h1>
             <ol>
               <li>
                 Click{" "}
                 <img className="icon" src={delete_icon} alt="delete_icon" />{" "}
                 icon
+                <br />
                 <img src={description9_pic} />
               </li>
               <li>
                 Then, it's gone!
+                <br />
                 <img src={description10_pic} />
               </li>
             </ol>
