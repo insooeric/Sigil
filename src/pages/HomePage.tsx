@@ -21,7 +21,8 @@ import copy_icon from "@/img/copy_icon.svg";
 const HomePage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("Intro");
 
-  const imgTagString = `<img src="..." />`;
+  const imgTagString1 = `<img src="[URL]" />`;
+  const imgTagString2 = `![My Badge]([URL])`;
 
   const options = [
     "Intro",
@@ -140,7 +141,9 @@ const HomePage: React.FC = () => {
                 <img src={description12_pic} />
               </li>
               <li>
-                Paste url using {imgTagString} tag
+                Paste url using:
+                <br />- {imgTagString1} tag
+                <br />- {imgTagString2} tag
                 <br />
                 <img src={description13_pic} />
               </li>
