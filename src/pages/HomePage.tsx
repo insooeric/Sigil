@@ -25,10 +25,10 @@ const HomePage: React.FC = () => {
 
   const options = [
     "Intro",
-    "Default",
-    "Entry",
-    "Add",
     "Usage",
+    "Default",
+    "Login",
+    "Add",
     "Edit",
     "Delete",
   ];
@@ -40,6 +40,7 @@ const HomePage: React.FC = () => {
         <div className="title">Badge Hub</div>
       </div>
       <div className="slogan">Make custom badge and use it!</div>
+      <br />
 
       <div className="documentation-container">
         <div className="navigation">
@@ -66,10 +67,10 @@ const HomePage: React.FC = () => {
             restrictions are applied:
             <ol>
               <li>The output is always formatted in .svg</li>
-              <li>The size of .svg is always 30 x 30 pixels</li>
+              <li>The size of .svg is always 40 x 40 pixels</li>
               <li>
                 For any image you store, it will automatically resize to width
-                of 30 pixels
+                of 100 x 100 pixels for storage efficiency
               </li>
             </ol>
           </div>
@@ -88,7 +89,7 @@ const HomePage: React.FC = () => {
               </li>
             </ul>
           </div>
-          <div className={`content ${activeTab === "Entry" ? "active" : ""}`}>
+          <div className={`content ${activeTab === "Login" ? "active" : ""}`}>
             <h1>Getting Started</h1>
             <ol>
               <li>Login with Github</li>
@@ -101,8 +102,8 @@ const HomePage: React.FC = () => {
             <h1>Adding Badge</h1>
             <ol>
               <li>
-                Click <img className="icon" src={add_icon} alt="add_icon" />{" "}
-                icon
+                In your "Dashboard" tab, click{" "}
+                <img className="icon" src={add_icon} alt="add_icon" /> icon
                 <br />
                 <img src={description3_pic} />
               </li>
@@ -133,7 +134,8 @@ const HomePage: React.FC = () => {
               <li>
                 Click <img className="icon" src={copy_icon} alt="copy_icon" />{" "}
                 icon to copy url <br />
-                Note that adding default badge is exactly the same.
+                <strong>Note</strong> that adding default badge is exactly the
+                same.
                 <br />
                 <img src={description12_pic} />
               </li>
@@ -154,8 +156,8 @@ const HomePage: React.FC = () => {
             <h1>Edit Badge Name</h1>
             <ol>
               <li>
-                Click <img className="icon" src={edit_icon} alt="edit_icon" />{" "}
-                icon
+                In your "Dashboard" tab, click{" "}
+                <img className="icon" src={edit_icon} alt="edit_icon" /> icon
                 <br />
                 <img src={description6_pic} />
               </li>

@@ -12,6 +12,7 @@ interface BadgeItem {
   userId: string;
   badgeName: string;
   badgeURL: string;
+  imageType: string;
 }
 
 const DashboardPage: React.FC = () => {
@@ -108,7 +109,12 @@ const DashboardPage: React.FC = () => {
   };
 
   const validateFileType = (file: File) => {
-    const validExtensions = ["image/png", "image/jpg", "image/jpeg"];
+    const validExtensions = [
+      "image/png",
+      "image/jpg",
+      "image/jpeg",
+      "image/svg+xml",
+    ];
     return validExtensions.includes(file.type);
   };
 
@@ -151,16 +157,26 @@ const DashboardPage: React.FC = () => {
     }
   };
 
+  const isValidName = (badgeName: string) => {
+    const whitespaceRegex = /\s/;
+    const extensionRegex = /\.\w+$/;
+
+    if (!whitespaceRegex.test(badgeName) && !extensionRegex.test(badgeName)) {
+      setNameError("");
+      return true;
+    } else {
+      setNameError("Badge name shouldn't have any white space or extension");
+      return false;
+    }
+  };
+
   const handleAddBadge = async (e: FormEvent) => {
     e.preventDefault();
     if (!user?.username || !newBadgeName || !selectedFile) return;
 
-    const whitespaceRegex = /\s/;
-    const extensionRegex = /\.\w+$/;
-    if (
-      whitespaceRegex.test(newBadgeName) ||
-      extensionRegex.test(newBadgeName)
-    ) {
+    // const whitespaceRegex = /\s/;
+    // const extensionRegex = /\.\w+$/;
+    if (!isValidName(newBadgeName)) {
       setNameError("Badge name shouldn't have any white space or extension");
       return;
     } else {
@@ -215,10 +231,18 @@ const DashboardPage: React.FC = () => {
 
   const handleConfirmRename = async (oldName: string) => {
     if (!user?.username) return;
+
     if (!tempNewName || tempNewName === oldName) {
       setEditingBadgeName(null);
       return;
     }
+
+    if (!isValidName(tempNewName)) {
+      return;
+    } else {
+      setNameError("");
+    }
+
     try {
       const response = await fetch(`${backendURL}/api/Badge/update-badge`, {
         method: "POST",
@@ -247,6 +271,7 @@ const DashboardPage: React.FC = () => {
   };
 
   const handleCopyClick = (badgeURL: string) => {
+    //const imgTagString = `<img alt="${badgeName}" src="${badgeURL}">`;
     navigator.clipboard
       .writeText(badgeURL)
       .then(() => {
@@ -284,6 +309,7 @@ const DashboardPage: React.FC = () => {
             <p>Loading badges...</p>
           </div>
         ) : (
+          (console.log(badges),
           badges.map((badge) => (
             <div className="badge-item" key={badge.badgeName}>
               {editingBadgeName === badge.badgeName ? (
@@ -296,11 +322,15 @@ const DashboardPage: React.FC = () => {
                   />
                   <div className="button-panel">
                     <button
-                      onClick={() => handleConfirmRename(badge.badgeName)}
+                      onClick={() => {
+                        handleConfirmRename(badge.badgeName);
+                      }}
                     >
                       Save
                     </button>
                     <button onClick={handleCancelEditing}>Cancel</button>
+
+                    {nameError && <p className="error-message">{nameError}</p>}
                   </div>
                 </div>
               ) : (
@@ -350,7 +380,7 @@ const DashboardPage: React.FC = () => {
                 />
               </div>
             </div>
-          ))
+          )))
         )}
       </div>
 
@@ -404,14 +434,15 @@ const DashboardPage: React.FC = () => {
 
                 {unsupportedFileType && (
                   <p className="error-message">
-                    Unsupported type. Please choose among .png, .jpg, .jpeg
+                    Unsupported type. Please choose among .png, .jpg, .jpeg,
+                    .svg
                   </p>
                 )}
 
                 <input
                   ref={fileInputRef}
                   type="file"
-                  accept=".png,.jpg,.jpeg"
+                  accept=".png,.jpg,.jpeg,.svg"
                   onChange={handleFileChange}
                   style={{ display: "none" }}
                   required

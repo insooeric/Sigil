@@ -129,7 +129,7 @@
     min-width: 300px;
     max-width: 800px;
     width: 100%;
-    height: 400px;
+    height: 600px;
     display: grid;
     grid-template-columns: 100px 1fr;
     grid-template-rows: 1fr;
@@ -305,6 +305,12 @@
             font-size: 0.8rem;
             font-weight: bold;
             margin-right: 0.5rem;
+          }
+
+          .error-message {
+            color: red;
+            margin: 0.5rem 0 0;
+            font-size: 0.7rem;
           }
         }
       }
