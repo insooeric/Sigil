@@ -14,6 +14,7 @@ import description11_pic from "@/img/description11_pic.png";
 import description12_pic from "@/img/description12_pic.png";
 import description13_pic from "@/img/description13_pic.png";
 import description14_pic from "@/img/description14_pic.png";
+import description15_pic from "@/img/description15_pic.png";
 import add_icon from "@/img/add_icon.svg";
 import edit_icon from "@/img/edit_icon.svg";
 import delete_icon from "@/img/delete_icon.svg";
@@ -68,10 +69,15 @@ const HomePage: React.FC = () => {
             restrictions are applied:
             <ol>
               <li>The output is always formatted in .svg</li>
-              <li>The size of .svg is always 40 x 40 pixels</li>
               <li>
-                For any image you store, it will automatically resize to width
-                of 100 x 100 pixels for storage efficiency
+                The the height of svg will always be 40 pixels and width will be
+                width will be determined based on the dimension of original
+                image
+              </li>
+              <li>
+                For any image you store, it will automatically resize to the
+                height of 100 pixels and the width will be determined based on
+                the dimension for storage efficiency
               </li>
             </ol>
           </div>
@@ -146,6 +152,8 @@ const HomePage: React.FC = () => {
                 <br />- {imgTagString2} tag
                 <br />
                 <img src={description13_pic} />
+                <br />
+                <img src={description15_pic} />
               </li>
               <li>
                 That's it! <br />
