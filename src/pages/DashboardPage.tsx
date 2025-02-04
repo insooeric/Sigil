@@ -7,6 +7,7 @@ import add_icon from "@/img/add_icon.svg";
 import copy_icon from "@/img/copy_icon.svg";
 import img_placeholder_icon from "@/img/img_placeholder_icon.svg";
 import loading_icon from "@/img/loading_icon.svg";
+import vector_background_img from "@/img/vector_background_img.jpg";
 
 interface BadgeItem {
   userId: string;
@@ -309,7 +310,6 @@ const DashboardPage: React.FC = () => {
             <p>Loading badges...</p>
           </div>
         ) : (
-          (console.log(badges),
           badges.map((badge) => (
             <div className="badge-item" key={badge.badgeName}>
               {editingBadgeName === badge.badgeName ? (
@@ -355,22 +355,34 @@ const DashboardPage: React.FC = () => {
                 />
               </div>
               <div className="badge-preview">
-                {loadingImages[badge.badgeName] && (
+                <div className="image-container">
+                  {loadingImages[badge.badgeName] && (
+                    <img
+                      src={loading_icon}
+                      alt="Loading..."
+                      className="loading-animation"
+                    />
+                  )}
+
                   <img
-                    src={loading_icon}
-                    alt="Loading..."
-                    className="loading-animation"
+                    src={badge.badgeURL}
+                    alt="Badge"
+                    onLoad={() => handleImageLoad(badge.badgeName)}
+                    onError={() => handleImageError(badge.badgeName)}
+                    style={
+                      loadingImages[badge.badgeName] ? { display: "none" } : {}
+                    }
                   />
-                )}
-                <img
-                  src={badge.badgeURL}
-                  alt="Badge"
-                  onLoad={() => handleImageLoad(badge.badgeName)}
-                  onError={() => handleImageError(badge.badgeName)}
-                  style={
-                    loadingImages[badge.badgeName] ? { display: "none" } : {}
-                  }
-                />
+
+                  {!loadingImages[badge.badgeName] && (
+                    <div className="background-panel">
+                      <img
+                        src={vector_background_img}
+                        alt="vector_background"
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div className="badge-delete">
@@ -380,7 +392,7 @@ const DashboardPage: React.FC = () => {
                 />
               </div>
             </div>
-          )))
+          ))
         )}
       </div>
 

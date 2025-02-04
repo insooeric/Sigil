@@ -369,10 +369,35 @@
             transform: rotate(360deg);
           }
         }
-
-        img {
+        .image-container {
           width: 30px;
           height: 30px;
+          position: relative;
+          //border: 1px red solid;
+
+          img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+          }
+
+          .background-panel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            z-index: 1;
+
+            border-radius: 0.5rem;
+
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 0.5rem;
+            }
+          }
         }
       }
 
