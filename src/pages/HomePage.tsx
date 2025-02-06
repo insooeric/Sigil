@@ -19,6 +19,7 @@ import add_icon from "@/img/add_icon.svg";
 import edit_icon from "@/img/edit_icon.svg";
 import delete_icon from "@/img/delete_icon.svg";
 import copy_icon from "@/img/copy_icon.svg";
+// yeet
 const HomePage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("Intro");
 
