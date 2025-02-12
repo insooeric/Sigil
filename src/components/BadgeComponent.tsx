@@ -441,7 +441,6 @@ const BadgeComponent: React.FC = () => {
                   accept=".png,.jpg,.jpeg,.svg"
                   onChange={handleFileChange}
                   style={{ display: "none" }}
-                  required
                 />
               </div>
 
