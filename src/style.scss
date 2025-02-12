@@ -195,19 +195,6 @@
   }
 }
 
-// margin: 0 auto;
-// min-width: 300px;
-// max-width: 800px;
-// display: flex;
-// flex-direction: column;
-
-// img {
-//   width: 100%;
-//   max-width: 300px;
-//   border: 1px white solid;
-//   border-radius: 1rem;
-//   margin: 1rem 0;
-// }
 .dashboard-page {
   display: flex;
   flex-direction: column;
@@ -229,188 +216,298 @@
     }
   }
 
-  .badge-list-container {
+  .badge-component {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
 
-    border-radius: 1rem;
-    border: 1px gray solid;
-    padding: 0.5rem;
+    width: 100%;
+    height: 100%;
 
-    max-width: 800px;
-    width: 90%;
+    .title {
+      font-weight: bold;
+      font-size: 1.5rem;
+      //width: 100%;
 
-    .loading-container {
+      margin-bottom: 1rem;
+    }
+
+    .badge-list-container {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-top: 20px;
-      margin: 0 auto;
-    }
+      align-items: start;
 
-    .loading-animation {
-      width: 50px;
-      height: 50px;
-      animation: rotate 1s linear infinite;
-    }
+      border-radius: 1rem;
+      border: 1px gray solid;
+      padding: 0.5rem;
 
-    @keyframes rotate {
-      from {
-        transform: rotate(0deg);
+      max-width: 800px;
+      width: 90%;
+
+      min-height: 400px;
+      max-height: 800px;
+      aspect-ratio: 1 / 0.61803398;
+
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: gray transparent;
+
+      .loading-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        margin: 0 auto;
       }
-      to {
-        transform: rotate(360deg);
+
+      .loading-animation {
+        width: 50px;
+        height: 50px;
+        animation: rotate 1s linear infinite;
       }
-    }
 
-    .badge-main-add {
-      width: 100%;
-      img {
-        width: 30px;
-      }
-    }
-
-    .badge-item {
-      display: grid;
-      grid-template-columns: 1fr 30px 50px 100px 30px;
-      width: 100%;
-      padding: 0.5rem 0;
-
-      border-top: 2px white solid;
-
-      .rename-area {
-        input {
-          border: none;
-          border-bottom: 1px solid gray;
-          outline: none;
-          background-color: transparent;
-          color: #fff;
-
-          &:focus {
-            border-bottom-color: #bbb;
-          }
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
         }
-        .button-panel {
-          //border: 1px white solid;
-          margin-top: 0.3rem;
-          button {
-            background-color: #242424;
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .badge-main-add {
+        width: 100%;
+        img {
+          width: 30px;
+        }
+      }
+
+      .badge-item {
+        display: grid;
+        grid-template-columns: 1fr 30px 30px 100px 30px;
+        gap: 5px;
+        width: 100%;
+
+        padding: 0.5rem 0;
+
+        border-top: 2px white solid;
+
+        .rename-area {
+          input {
+            border: none;
+            border-bottom: 1px solid gray;
+            outline: none;
+            background-color: transparent;
             color: #fff;
-            border: 1px solid #fff;
-            padding: 0.3rem 0.6rem;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-right: 0.5rem;
+
+            &:focus {
+              border-bottom-color: #bbb;
+            }
           }
-
-          .error-message {
-            color: red;
-            margin: 0.5rem 0 0;
-            font-size: 0.7rem;
-          }
-        }
-      }
-      .badge-name {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        overflow-x: auto;
-        white-space: nowrap;
-      }
-
-      .badge-update {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-
-        img {
-          width: 30px;
-          height: 30px;
-        }
-      }
-
-      .badge-copy-url {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-
-        img {
-          width: 30px;
-          height: 30px;
-        }
-      }
-
-      .badge-preview {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-
-        .loading-animation {
-          width: 50px;
-          height: 50px;
-          animation: rotate 1s linear infinite;
-        }
-
-        @keyframes rotate {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-        .image-container {
-          width: 30px;
-          height: 30px;
-          position: relative;
-          //border: 1px red solid;
-
-          img {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-          }
-
-          .background-panel {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 30px;
-            height: 30px;
-            z-index: 1;
-
-            border-radius: 0.5rem;
-
-            img {
-              width: 100%;
-              height: 100%;
+          .button-panel {
+            //border: 1px white solid;
+            margin-top: 0.3rem;
+            button {
+              background-color: #242424;
+              color: #fff;
+              border: 1px solid #fff;
+              padding: 0.3rem 0.6rem;
               border-radius: 0.5rem;
+              cursor: pointer;
+              font-size: 0.8rem;
+              font-weight: bold;
+              margin-right: 0.5rem;
+            }
+
+            .error-message {
+              color: red;
+              margin: 0.5rem 0 0;
+              font-size: 0.7rem;
             }
           }
         }
-      }
 
-      .badge-delete {
+        .badge-name {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          overflow-x: auto;
+          white-space: nowrap;
+        }
+
+        .badge-update {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+
+        .badge-copy-url {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+
+        .badge-preview {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+
+          .loading-animation {
+            width: 50px;
+            height: 50px;
+            animation: rotate 1s linear infinite;
+
+            @keyframes rotate {
+              from {
+                transform: rotate(0deg);
+              }
+              to {
+                transform: rotate(360deg);
+              }
+            }
+          }
+
+          .image-container {
+            position: relative;
+            width: 100%;
+            height: 30px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+
+            overflow: hidden;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: thin;
+            scrollbar-color: gray transparent;
+
+            // border: 1px red solid;
+
+            .image-inner-container {
+              position: relative;
+              display: inline-block;
+              height: 100%;
+
+              img {
+                position: relative;
+                height: 90%;
+                z-index: 2;
+              }
+
+              .background-panel {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                background-image: url("./img/vector_background_img.jpg");
+                background-repeat: repeat;
+                background-size: auto 100%;
+              }
+            }
+          }
+        }
+
+        .badge-delete {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  .image-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    .title {
+      font-weight: bold;
+      font-size: 1.5rem;
+      //width: 100%;
+
+      margin-bottom: 1rem;
+    }
+
+    .image-list-container {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      border-radius: 1rem;
+      border: 1px gray solid;
+      padding: 0.5rem;
+
+      max-width: 800px;
+      width: 90%;
+
+      height: 100px;
+      // min-height: 400px;
+      // max-height: 800px;
+      //aspect-ratio: 1 / 0.61803398;
+
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: gray transparent;
+
+      .loading-container {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 100%;
-        height: 100%;
+        margin-top: 20px;
+        margin: 0 auto;
+      }
 
+      .loading-animation {
+        width: 50px;
+        height: 50px;
+        animation: rotate 1s linear infinite;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .image-main-add {
+        width: 100%;
         img {
           width: 30px;
-          height: 30px;
         }
       }
     }
@@ -422,6 +519,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 3;
 
     background-color: rgba(0, 0, 0, 0.5);
 
