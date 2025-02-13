@@ -362,6 +362,9 @@ $active-color: #494949;
           align-items: center;
           overflow-x: auto;
           white-space: nowrap;
+
+          scrollbar-width: thin;
+          scrollbar-color: gray transparent;
         }
 
         .badge-update,
