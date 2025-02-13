@@ -268,6 +268,7 @@ const BadgeComponent: React.FC = () => {
   const handleCancelEditing = () => {
     setEditingBadgeName(null);
     setTempNewName("");
+    setNameError("");
   };
 
   const handleCopyClick = (badgeURL: string) => {
@@ -286,8 +287,10 @@ const BadgeComponent: React.FC = () => {
     <div className="badge-component">
       <div className="title">Badge List</div>
       <div className="badge-list-container">
-        <div className="badge-main-add">
-          <img src={add_icon} onClick={handleOpenAddModal} />
+        <div className="button-pannel">
+          <div className="add-badge-btn" onClick={handleOpenAddModal}>
+            <img src={add_icon} />
+          </div>
         </div>
         {isFetchingBadges ? (
           <div className="loading-container">
@@ -330,18 +333,21 @@ const BadgeComponent: React.FC = () => {
 
               <div className="badge-update">
                 {editingBadgeName !== badge.badgeName && (
-                  <img
-                    src={edit_icon}
+                  <div
+                    className="button"
                     onClick={() => handleStartEditing(badge.badgeName)}
-                  />
+                  >
+                    <img src={edit_icon} alt="Update Badge Name" />
+                  </div>
                 )}
               </div>
               <div className="badge-copy-url">
-                <img
-                  src={copy_icon}
+                <div
+                  className="button"
                   onClick={() => handleCopyClick(badge.badgeURL)}
-                  alt="Copy Badge URL"
-                />
+                >
+                  <img src={copy_icon} alt="Copy Badge URL" />
+                </div>
               </div>
               <div className="badge-preview">
                 <div className="image-container">
@@ -371,10 +377,12 @@ const BadgeComponent: React.FC = () => {
               </div>
 
               <div className="badge-delete">
-                <img
-                  src={delete_icon}
+                <div
+                  className="button"
                   onClick={() => handleDeleteBadge(badge.badgeName)}
-                />
+                >
+                  <img src={delete_icon} alt="Delete badge" />
+                </div>
               </div>
             </div>
           ))

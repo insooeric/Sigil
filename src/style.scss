@@ -1,3 +1,6 @@
+$hover-color: #757575;
+$active-color: #494949;
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -259,33 +262,50 @@
         justify-content: center;
         margin-top: 20px;
         margin: 0 auto;
+
+        width: 50px;
+        height: 50px;
       }
 
       .loading-animation {
-        width: 50px;
-        height: 50px;
+        height: 100%;
+        aspect-ratio: 1/1;
         animation: rotate 1s linear infinite;
-      }
 
-      @keyframes rotate {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
+        @keyframes rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
         }
       }
+      .button-pannel {
+        margin-bottom: 0.5rem;
+        .add-badge-btn {
+          height: 30px;
+          padding: 0.3rem;
+          aspect-ratio: 1/1;
 
-      .badge-main-add {
-        width: 100%;
-        img {
-          width: 30px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: $hover-color;
+            border-radius: 0.5rem;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
 
       .badge-item {
         display: grid;
-        grid-template-columns: 1fr 30px 30px 100px 30px;
+        grid-template-columns: 1fr 40px 40px 100px 40px;
+        //grid-template-rows: 40px;
         gap: 5px;
         width: 100%;
 
@@ -318,6 +338,14 @@
               font-size: 0.8rem;
               font-weight: bold;
               margin-right: 0.5rem;
+
+              &:hover {
+                background-color: $hover-color;
+              }
+
+              &:active {
+                background-color: $active-color;
+              }
             }
 
             .error-message {
@@ -336,29 +364,40 @@
           white-space: nowrap;
         }
 
-        .badge-update {
+        .badge-update,
+        .badge-copy-url,
+        .badge-delete {
           display: flex;
           align-items: center;
           justify-content: center;
           width: 100%;
-          height: 100%;
-
-          img {
-            width: 30px;
-            height: 30px;
-          }
         }
 
-        .badge-copy-url {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-          height: 100%;
+        .badge-update,
+        .badge-copy-url,
+        .badge-delete {
+          .button {
+            width: 40px;
+            height: 40px;
+            padding: 0.3rem;
 
-          img {
-            width: 30px;
-            height: 30px;
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+
+            cursor: pointer;
+
+            &:hover {
+              background-color: $hover-color;
+            }
+
+            &:active {
+              background-color: $active-color;
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
           }
         }
 
@@ -401,6 +440,11 @@
 
             // border: 1px red solid;
 
+            .loading-animation {
+              width: 30px;
+              height: 30px;
+            }
+
             .image-inner-container {
               position: relative;
               display: inline-block;
@@ -424,19 +468,6 @@
                 background-size: auto 100%;
               }
             }
-          }
-        }
-
-        .badge-delete {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-          height: 100%;
-
-          img {
-            width: 30px;
-            height: 30px;
           }
         }
       }
@@ -471,7 +502,7 @@
       max-width: 800px;
       width: 90%;
 
-      height: 100px;
+      height: 130px;
       // min-height: 400px;
       // max-height: 800px;
       //aspect-ratio: 1 / 0.61803398;
@@ -480,34 +511,24 @@
       scrollbar-width: thin;
       scrollbar-color: gray transparent;
 
-      .loading-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-top: 20px;
-        margin: 0 auto;
-      }
+      .button-pannel {
+        margin-bottom: 0.5rem;
+        .add-image-btn {
+          height: 30px;
+          padding: 0.3rem;
+          aspect-ratio: 1/1;
 
-      .loading-animation {
-        width: 50px;
-        height: 50px;
-        animation: rotate 1s linear infinite;
-      }
+          cursor: pointer;
 
-      @keyframes rotate {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
+          &:hover {
+            background-color: $hover-color;
+            border-radius: 0.5rem;
+          }
 
-      .image-main-add {
-        width: 100%;
-        img {
-          width: 30px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
     }
@@ -611,6 +632,14 @@
             cursor: pointer;
             font-size: 0.8rem;
             font-weight: bold;
+
+            &:hover {
+              background-color: $hover-color;
+            }
+
+            &:active {
+              background-color: $active-color;
+            }
           }
         }
       }
