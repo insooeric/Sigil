@@ -6,6 +6,7 @@ import DashboardPage from "@/pages/DashboardPage";
 import NotFoundPage from "@/pages/NotFoundPage";
 import UnauthorizedPage from "@/pages/UnauthorizedPage";
 import DefaultBadgePage from "@/pages/DefaultBadgePage";
+import DocumentationPage from "@/pages/DocumentationPage";
 
 import { RootState } from "@/redux/store";
 import { useSelector } from "react-redux";
@@ -20,6 +21,7 @@ const Router: React.FC = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/default-badges" element={<DefaultBadgePage />} />
+          <Route path="document" element={<DocumentationPage />} />
           <Route
             path="/dashboard"
             element={user ? <DashboardPage /> : <UnauthorizedPage />}

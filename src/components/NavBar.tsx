@@ -78,6 +78,11 @@ const NavBar: React.FC<NavBarProps> = () => {
         </li>
         <li>
           <div>
+            <Link to="/document">Document</Link>
+          </div>
+        </li>
+        <li>
+          <div>
             <Link to="/dashboard">Dashboard</Link>
           </div>
         </li>
