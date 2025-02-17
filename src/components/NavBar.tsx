@@ -34,13 +34,27 @@ const NavBar: React.FC<NavBarProps> = () => {
       });
   }, [dispatch]);
 
+  // const handleLogin = () => {
+  //   const clientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
+  //   const backendURL = import.meta.env.VITE_BACKEND_URL;
+  //   const state = generateRandomString();
+
+  //   const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(
+  //     `${backendURL}/api/auth/github/callback`
+  //   )}&scope=${encodeURIComponent("read:user user:email")}&state=${state}`;
+
+  //   window.location.href = githubAuthUrl;
+  // };
+
   const handleLogin = () => {
     const clientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
-    const backendURL = import.meta.env.VITE_BACKEND_URL;
+    // Use the current domain (badgehub.vercel.app) for the redirect URI.
+    const redirectUri = `${window.location.origin}/api/auth/github/callback`;
+
     const state = generateRandomString();
 
     const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(
-      `${backendURL}/api/auth/github/callback`
+      redirectUri
     )}&scope=${encodeURIComponent("read:user user:email")}&state=${state}`;
 
     window.location.href = githubAuthUrl;
