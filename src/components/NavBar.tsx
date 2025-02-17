@@ -86,6 +86,12 @@ const NavBar: React.FC<NavBarProps> = () => {
             <Link to="/dashboard">Dashboard</Link>
           </div>
         </li>
+
+        <li>
+          <div>
+            <Link to="/sandbox">Sandbox</Link>
+          </div>
+        </li>
         <li>
           <div>
             <Link to="/default-badges">Badges</Link>
