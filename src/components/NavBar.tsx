@@ -13,8 +13,11 @@ const NavBar: React.FC<NavBarProps> = () => {
   const user = useSelector((state: RootState) => state.auth.user);
 
   useEffect(() => {
-    const backendURL = import.meta.env.VITE_BACKEND_URL;
-    fetch(`${backendURL}/api/auth/user`, {
+    // const backendURL = import.meta.env.VITE_BACKEND_URL;
+    // fetch(`${backendURL}/api/auth/user`, {
+    //   credentials: "include",
+    // })
+    fetch(`/api/auth/user`, {
       credentials: "include",
     })
       .then(async (res) => {
