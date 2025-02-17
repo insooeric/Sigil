@@ -16,7 +16,7 @@ const NavBar: React.FC<NavBarProps> = () => {
     // const backendURL = import.meta.env.VITE_BACKEND_URL;
     // fetch(`${backendURL}/api/auth/user`, {
     //   credentials: "include",
-    // })
+    //  })
     fetch(`/api/auth/user`, {
       credentials: "include",
     })
