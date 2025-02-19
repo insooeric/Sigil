@@ -24,7 +24,7 @@ const DocumentationPage: React.FC = () => {
 
   return (
     <div className="documentation-page">
-      DocumentationPage
+      <h1>Documentation</h1>
       <div className="grid-view">
         <div className="option-list">
           {options.map((option) => (

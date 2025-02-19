@@ -14,7 +14,6 @@ const DefaultBadgePage: React.FC = () => {
   const [loadingImages, setLoadingImages] = useState<{
     [key: string]: boolean;
   }>({});
-  const backendURL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     fetchDefaultBadges();
@@ -34,17 +33,16 @@ const DefaultBadgePage: React.FC = () => {
   const fetchDefaultBadges = async () => {
     setIsFetchingBadges(true);
     try {
-      const response = await fetch(
-        `${backendURL}/api/Badge/get-all-default-badge`,
-        {
-          method: "GET",
-        }
-      );
+      const response = await fetch(`/api/Badge/get-all-default-badge`, {
+        method: "GET",
+      });
       if (!response.ok) {
         throw new Error(`Failed to fetch badges: ${response.status}`);
       }
       const data = await response.json();
       setBadges(data.badges || []);
+
+      console.log(data);
 
       const initialLoadingState = data.badges.reduce(
         (acc: { [key: string]: boolean }, badge: BadgeItem) => {

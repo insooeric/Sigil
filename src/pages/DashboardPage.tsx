@@ -17,6 +17,7 @@ const DashboardPage: React.FC = () => {
 
   return (
     <div className="dashboard-page">
+      <h1>Dashboard</h1>
       {user ? (
         <div className="profile-container">
           {user.avatarUrl && <img src={user.avatarUrl} alt="avatar" />}
@@ -25,8 +26,6 @@ const DashboardPage: React.FC = () => {
       ) : (
         <div>Something went wrong :(</div>
       )}
-
-      <h1>Dashboard</h1>
 
       {user ? (
         <>
