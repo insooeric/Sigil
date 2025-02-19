@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-import default_preview_icon from "@/img/default_preview_icon.svg";
 import invalid_image_icon from "@/img/invalid_image_icon.svg";
 import loading_icon from "@/img/loading_icon.svg";
 
@@ -75,7 +74,10 @@ const SandboxPage: React.FC = () => {
             )
           ) : (
             <div className="default-container">
-              <img src={default_preview_icon} alt="Default" />
+              {/* <img src={default_preview_icon} alt="Default" /> */}
+              Your image <br />
+              will appear <br />
+              HERE :)
             </div>
           )}
         </div>
