@@ -31,8 +31,14 @@ const NavBar: React.FC<NavBarProps> = () => {
   }, [dispatch]);
 
   const handleLogin = () => {
-    const clientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
+    let clientId; // = import.meta.env.VITE_GITHUB_CLIENT_ID;
     // const clientId = import.meta.env.VITE_DEV_GITHUB_CLIENT_ID;
+    if (window.location.origin.includes("localhost")) {
+      clientId = import.meta.env.VITE_DEV_GITHUB_CLIENT_ID;
+    } else {
+      clientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
+    }
+
     const redirectUri = `${window.location.origin}/api/auth/github/callback`;
     console.log(redirectUri);
 
