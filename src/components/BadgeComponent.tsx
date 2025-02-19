@@ -17,7 +17,6 @@ interface BadgeItem {
 
 const BadgeComponent: React.FC = () => {
   const user = useSelector((state: RootState) => state.auth.user);
-  const backendURL = import.meta.env.VITE_BACKEND_URL;
   const [loadingImages, setLoadingImages] = useState<{
     [key: string]: boolean;
   }>({});
@@ -69,7 +68,7 @@ const BadgeComponent: React.FC = () => {
     if (!user?.username) return;
     setIsFetchingBadges(true);
     try {
-      const response = await fetch(`${backendURL}/api/Badge/get-all-badge`, {
+      const response = await fetch(`/api/Badge/get-all-badge`, {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -189,7 +188,7 @@ const BadgeComponent: React.FC = () => {
       formData.append("BadgeName", newBadgeName);
       formData.append("UserId", user.username);
 
-      const response = await fetch(`${backendURL}/api/Badge/upload-badge`, {
+      const response = await fetch(`/api/Badge/upload-badge`, {
         method: "POST",
         credentials: "include",
         body: formData,
@@ -208,7 +207,7 @@ const BadgeComponent: React.FC = () => {
   const handleDeleteBadge = async (badgeName: string) => {
     if (!user?.username) return;
     try {
-      const response = await fetch(`${backendURL}/api/Badge/delete-badge`, {
+      const response = await fetch(`/api/Badge/delete-badge`, {
         method: "DELETE",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -244,7 +243,7 @@ const BadgeComponent: React.FC = () => {
     }
 
     try {
-      const response = await fetch(`${backendURL}/api/Badge/update-badge`, {
+      const response = await fetch(`/api/Badge/update-badge`, {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

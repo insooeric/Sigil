@@ -13,10 +13,6 @@ const NavBar: React.FC<NavBarProps> = () => {
   const user = useSelector((state: RootState) => state.auth.user);
 
   useEffect(() => {
-    // const backendURL = import.meta.env.VITE_BACKEND_URL;
-    // fetch(`${backendURL}/api/auth/user`, {
-    //   credentials: "include",
-    //  })
     fetch(`/api/auth/user`, {
       credentials: "include",
     })
@@ -36,7 +32,9 @@ const NavBar: React.FC<NavBarProps> = () => {
 
   const handleLogin = () => {
     const clientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
+    // const clientId = import.meta.env.VITE_DEV_GITHUB_CLIENT_ID;
     const redirectUri = `${window.location.origin}/api/auth/github/callback`;
+    console.log(redirectUri);
 
     const state = generateRandomString();
 
@@ -48,8 +46,7 @@ const NavBar: React.FC<NavBarProps> = () => {
   };
 
   const handleLogout = () => {
-    const backendURL = import.meta.env.VITE_BACKEND_URL;
-    fetch(`${backendURL}/api/auth/logout`, {
+    fetch(`/api/auth/logout`, {
       method: "POST",
       credentials: "include",
       headers: {

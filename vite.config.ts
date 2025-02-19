@@ -9,4 +9,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+
+  server: {
+    port: 3000,
+    proxy: {
+      "/api": {
+        target: "https://localhost:32769",
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 });
