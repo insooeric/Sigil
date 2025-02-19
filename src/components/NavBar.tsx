@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { setUser, clearUser } from "@/redux/authSlice";
@@ -11,6 +11,7 @@ interface NavBarProps {
 const NavBar: React.FC<NavBarProps> = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.auth.user);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`/api/auth/user`, {
@@ -31,24 +32,33 @@ const NavBar: React.FC<NavBarProps> = () => {
   }, [dispatch]);
 
   const handleLogin = () => {
-    let clientId; // = import.meta.env.VITE_GITHUB_CLIENT_ID;
+    //const clientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
     // const clientId = import.meta.env.VITE_DEV_GITHUB_CLIENT_ID;
-    if (window.location.origin.includes("localhost")) {
-      clientId = import.meta.env.VITE_DEV_GITHUB_CLIENT_ID;
-    } else {
-      clientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
+    try {
+      let clientId = "";
+      if (window.location.origin.includes("localhost")) {
+        console.log("YOU'RE IN DEV MODE");
+        if (!import.meta.env.VITE_DEV_GITHUB_CLIENT_ID) {
+          throw new Error("Dev dependency missing :(");
+        }
+        clientId = import.meta.env.VITE_DEV_GITHUB_CLIENT_ID;
+      } else {
+        clientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
+      }
+      const redirectUri = `${window.location.origin}/api/auth/github/callback`;
+      console.log(redirectUri);
+
+      const state = generateRandomString();
+
+      const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(
+        redirectUri
+      )}&scope=${encodeURIComponent("read:user user:email")}&state=${state}`;
+
+      window.location.href = githubAuthUrl;
+    } catch (err) {
+      console.log(`Error: ${err}`);
+      navigate("/");
     }
-
-    const redirectUri = `${window.location.origin}/api/auth/github/callback`;
-    console.log(redirectUri);
-
-    const state = generateRandomString();
-
-    const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(
-      redirectUri
-    )}&scope=${encodeURIComponent("read:user user:email")}&state=${state}`;
-
-    window.location.href = githubAuthUrl;
   };
 
   const handleLogout = () => {
