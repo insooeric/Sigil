@@ -25,12 +25,9 @@ const GetStarted: React.FC = () => {
         <b>badges</b> and <b>custom badges</b> in their <b>Readme.md</b> file.
       </p>
       <p>
-        However, you can still use it for other purpose, like displaying small
-        image in website for example.
-      </p>
-      <p>
-        Since it is built specifically for GitHub Readme.md,{" "}
-        <b>this documentation will only cover usage in Readme.md</b>.
+        While you can still use it for other purpose, like displaying small
+        image in website for example, since it is built specifically for GitHub
+        Readme.md, <b>this documentation will only cover usage in Readme.md</b>.
       </p>
       <h1>Get Started</h1>
       <p>Followings are the basic rules:</p>
