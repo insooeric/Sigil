@@ -12,8 +12,8 @@ const Restriction: React.FC = () => {
       <ol>
         <li>The output is always formatted in .svg.</li>
         <li>
-          The the height of svg will always be 40 pixels and width will be width
-          will be determined based on the dimension of original image.
+          The the height of svg will always be 40 pixels and the width will be
+          determined based on the dimension of original image.
         </li>
         <li>
           For any image you store, it will automatically resize to the height of

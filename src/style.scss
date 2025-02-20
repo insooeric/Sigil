@@ -679,8 +679,20 @@ $active-color: #494949;
         height: 100%;
 
         img {
-          width: 24px;
-          height: 24px;
+          width: 30px;
+          height: 30px;
+          padding: 0.3rem;
+
+          border-radius: 0.5rem;
+          box-sizing: border-box;
+
+          &:hover {
+            background-color: $hover-color;
+          }
+
+          &:active {
+            background-color: $active-color;
+          }
         }
       }
 

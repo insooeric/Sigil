@@ -16,10 +16,14 @@ const Custombadge: React.FC = () => {
       <p>You can do following actions:</p>
       <ul>
         <li>Add badge.</li>
-        <li>Remove badge.</li>
         <li>Update badge.</li>
+        <li>Delete badge.</li>
       </ul>
       <img className="image" src={description2_pic} />
+      <p>
+        For further more details, please read <b>Add Badge</b>,{" "}
+        <b>Update Badge</b>, <b>Delete Badge</b> in this documentation.
+      </p>
 
       <div className="end-of-content" />
     </div>
