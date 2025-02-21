@@ -41,7 +41,7 @@ const Router: React.FC = () => {
         </div>
       </div>
 
-      {/* <FooterBar testval={0} /> */}
+      {/* <FooterBar testval={0} />  */}
     </BrowserRouter>
   );
 };
