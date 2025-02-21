@@ -909,8 +909,10 @@ $active-color: #494949;
         align-items: start;
         justify-content: start;
 
+        max-width: 800px;
         width: 100%;
-        height: 100%;
+        margin: 0 auto;
+        padding: 1rem;
 
         h1,
         h2 {
@@ -936,6 +938,10 @@ $active-color: #494949;
 
           // margin-top: 0.5rem;
           margin-bottom: 0.5rem;
+          font-size: 1rem;
+
+          word-wrap: break-word;
+          overflow-wrap: break-word;
         }
 
         b {
