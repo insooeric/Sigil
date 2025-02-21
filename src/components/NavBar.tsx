@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { setUser, clearUser } from "@/redux/authSlice";
+import nav_logo_icon from "@/img/nav_logo_icon.svg";
+import menu_icon from "@/img/menu_icon.svg";
 
 interface NavBarProps {
   testval: 0;
@@ -12,6 +14,21 @@ const NavBar: React.FC<NavBarProps> = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.auth.user);
   const navigate = useNavigate();
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  let hideTimeout: ReturnType<typeof setTimeout>;
+
+  const handleDropdownMouseEnter = () => {
+    clearTimeout(hideTimeout);
+    setDropdownVisible(true);
+  };
+
+  const handleDropdownMouseLeave = () => {
+    hideTimeout = setTimeout(() => {
+      setDropdownVisible(false);
+    }, 200);
+  };
 
   useEffect(() => {
     fetch(`/api/auth/user`, {
@@ -31,9 +48,32 @@ const NavBar: React.FC<NavBarProps> = () => {
       });
   }, [dispatch]);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node)
+      ) {
+        setMobileMenuVisible(false);
+      }
+    };
+
+    if (mobileMenuVisible) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [mobileMenuVisible]);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuVisible((prev) => !prev);
+  };
+
   const handleLogin = () => {
-    //const clientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
-    // const clientId = import.meta.env.VITE_DEV_GITHUB_CLIENT_ID;
     try {
       let clientId = "";
       if (window.location.origin.includes("localhost")) {
@@ -87,45 +127,88 @@ const NavBar: React.FC<NavBarProps> = () => {
 
   return (
     <nav className="navbar">
-      <ul>
-        <li>
-          <div>
-            <Link to="/">Home</Link>
-          </div>
-        </li>
-        <li>
-          <div>
-            <Link to="/document">Document</Link>
-          </div>
-        </li>
-        <li>
-          <div>
-            <Link to="/dashboard">Dashboard</Link>
-          </div>
-        </li>
+      <img src={nav_logo_icon} alt="logo" />
+      <img
+        src={menu_icon}
+        className="mobile"
+        alt="mobile menu icon"
+        onClick={toggleMobileMenu}
+      />
+      {mobileMenuVisible && (
+        <div className="mobile-nav-container" ref={mobileMenuRef}>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/document">Document</Link>
+            </li>
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+            <li>
+              <Link to="/default-badges">Badges</Link>
+            </li>
+            <li>
+              <Link to="/sandbox">Sandbox</Link>
+            </li>
+            <li>
+              {!user ? (
+                <div className="login" onClick={handleLogin}>
+                  Login
+                </div>
+              ) : (
+                <div className="logout" onClick={handleLogout}>
+                  Logout
+                </div>
+              )}
+            </li>
+          </ul>
+        </div>
+      )}
 
-        <li>
-          <div>
-            <Link to="/sandbox">Sandbox</Link>
-          </div>
-        </li>
-        <li>
-          <div>
-            <Link to="/default-badges">Badges</Link>
-          </div>
-        </li>
-        <li>
-          {!user ? (
-            <div className="login" onClick={handleLogin}>
-              Login
-            </div>
-          ) : (
-            <div className="logout" onClick={handleLogout}>
-              Logout
-            </div>
-          )}
-        </li>
-      </ul>
+      <div className="nav-container">
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/document">Document</Link>
+          </li>
+          <li
+            onMouseEnter={handleDropdownMouseEnter}
+            onMouseLeave={handleDropdownMouseLeave}
+          >
+            <span>Badges</span>
+            {dropdownVisible && (
+              <div className="dropdown">
+                <ul>
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                  <li>
+                    <Link to="/default-badges">Badges</Link>
+                  </li>
+                  <li>
+                    <Link to="/sandbox">Sandbox</Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </li>
+          <li>
+            {!user ? (
+              <div className="login" onClick={handleLogin}>
+                Login
+              </div>
+            ) : (
+              <div className="logout" onClick={handleLogout}>
+                Logout
+              </div>
+            )}
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };
