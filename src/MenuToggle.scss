@@ -8,16 +8,6 @@ $active-color: #494949;
   -webkit-user-select: none;
   user-select: none;
 
-  a {
-    text-decoration: none;
-    color: #232323;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: white;
-    }
-  }
-
   input {
     display: block;
     width: 40px;
@@ -96,16 +86,20 @@ $active-color: #494949;
       font-weight: bold;
       border-radius: 0.5rem;
 
+      color: #232323;
+
       &:not(:first-child) {
         margin-top: 0.5rem;
       }
 
       &:hover {
         background-color: $hover-color;
+        color: white;
       }
 
       &:active {
         background-color: $active-color;
+        color: white;
       }
     }
   }
