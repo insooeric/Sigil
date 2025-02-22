@@ -2,11 +2,8 @@ import profileImg from "@/img/cat-profile.jpg";
 import githubImg from "@/img/github.png";
 import mokokoImg from "@/img/personal_website.png";
 import linkedInImg from "@/img/linkedIn.png";
-interface FooterBarProps {
-  testval: 0;
-}
 
-const FooterBar: React.FC<FooterBarProps> = () => {
+const FooterBar: React.FC = () => {
   return (
     <>
       <div className="footerbar">

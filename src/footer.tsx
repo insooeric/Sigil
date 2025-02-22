@@ -1,19 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import "./index.css";
 import "./style.scss";
 import "./sd-style.scss";
+import FooterBar from "./components/FooterBar";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+const footer = ReactDOM.createRoot(
+  document.getElementById("footer") as HTMLElement
 );
-root.render(
+footer.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <FooterBar />
     </Provider>
   </React.StrictMode>
 );

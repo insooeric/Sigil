@@ -5,6 +5,8 @@ import { RootState } from "@/redux/store";
 import { setUser, clearUser } from "@/redux/authSlice";
 import unverified_person_pic from "@/img/unverified_person_pic.png";
 import verified_person_pic from "@/img/verified_person_pic.png";
+import sd_logo_pic from "@/img/sd_logo_pic.png";
+import MenuToggle from "./MenuToggle";
 
 const TopBar: React.FC = () => {
   const dispatch = useDispatch();
@@ -96,6 +98,14 @@ const TopBar: React.FC = () => {
 
   return (
     <div className="topbar">
+      <div className="sd-nav">
+        <div className="nav-item">
+          <MenuToggle />
+        </div>
+        <div className="nav-item">
+          <img src={sd_logo_pic} alt="logo" />
+        </div>
+      </div>
       <div className="stuffs">TopBar</div>
       <div
         className="profile-wrapper"

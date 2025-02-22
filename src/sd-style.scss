@@ -1,0 +1,61 @@
+@media (max-width: 900px) {
+  .documentation-page {
+    h1 {
+      margin: 0;
+      text-align: center;
+    }
+    .grid-view {
+      display: grid;
+      grid-template-columns: 1fr;
+      height: fit-content;
+      grid-gap: 0;
+
+      .option-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 5px;
+
+        width: 100%;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: gray transparent;
+
+        .option {
+          white-space: nowrap;
+          border: 1px gray solid;
+          border-radius: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .body-grid {
+    grid-template-columns: 1fr;
+    .body-sidebar {
+      display: none;
+    }
+  }
+
+  .topbar {
+    .sd-nav {
+      display: grid;
+    }
+  }
+
+  .default-badge-page {
+    .badge-container {
+      grid-template-columns: 1fr 1fr;
+
+      &::before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
