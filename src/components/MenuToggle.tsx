@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "@/MenuToggle.scss";
 
 const MenuToggle: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div id="menuToggle">
       <input type="checkbox" />
@@ -10,20 +12,20 @@ const MenuToggle: React.FC = () => {
       <span></span>
       <span></span>
       <ul>
-        <li>
-          <Link to="/">Home</Link>
+        <li value="home" onClick={() => navigate("/")}>
+          Home
         </li>
-        <li>
-          <Link to="/document">Document</Link>
+        <li value="document" onClick={() => navigate("/document")}>
+          Document
         </li>
-        <li>
-          <Link to="/dashboard">Dashboard</Link>
+        <li value="dashboard" onClick={() => navigate("/dashboard")}>
+          Dashboard
         </li>
-        <li>
-          <Link to="/default-badges">Badges</Link>
+        <li value="badges" onClick={() => navigate("/default-badges")}>
+          Badges
         </li>
-        <li>
-          <Link to="/sandbox">Sandbox</Link>
+        <li value="sandbox" onClick={() => navigate("/sandbox")}>
+          Sandbox
         </li>
       </ul>
     </div>
