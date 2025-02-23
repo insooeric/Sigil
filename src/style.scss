@@ -60,6 +60,8 @@ body {
     flex-direction: column;
   }
   .body-content {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
 
@@ -77,6 +79,7 @@ body {
     .body-main-content {
       position: relative;
       width: 100%;
+      flex: 1;
 
       padding: 1rem;
 
@@ -233,160 +236,10 @@ body {
   }
 }
 
-.body-container {
-  margin: 0;
-  padding: 0;
-  min-width: 300px;
-  height: 100vh;
-}
-
-.deprecate_navbar {
-  border-bottom: 2px white solid;
-  height: 80px;
-  padding: 0.5rem;
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  position: relative;
-
-  img {
-    width: auto;
-    height: 100%;
-    margin-right: 0.5rem;
-  }
-
-  img.mobile {
-    display: none;
-    margin: 0;
-    padding: 0.8rem;
-    box-sizing: border-box;
-    border-radius: 0.5rem;
-    position: relative;
-
-    width: 50px;
-    height: 50px;
-
-    &:hover {
-      background-color: $hover-color;
-    }
-    &:active {
-      background-color: $active-color;
-    }
-  }
-
-  .mobile-nav-container {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background-color: $active-color;
-
-    padding: 1rem;
-    border-radius: 0.5rem;
-
-    z-index: 2;
-
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      li {
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-
-        &:hover {
-          background-color: $hover-color;
-        }
-        &:active {
-          background-color: $active-color;
-        }
-
-        span {
-          cursor: default;
-        }
-      }
-    }
-  }
-
-  .nav-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    // border: 1px white solid;
-    height: 100%;
-
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      flex-direction: row;
-      li {
-        position: relative;
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-
-        &:hover {
-          background-color: $hover-color;
-        }
-        &:active {
-          background-color: $active-color;
-        }
-
-        span {
-          cursor: default;
-        }
-      }
-    }
-
-    .dropdown {
-      position: absolute;
-      left: 0;
-      top: 3rem;
-      margin: 0;
-      padding: 0.5rem;
-      z-index: 2;
-      // border-bottom-left-radius: 0.5rem;
-      // border-bottom-right-radius: 0.5rem;
-      border-radius: 0.5rem;
-
-      background-color: $active-color;
-
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        li {
-          margin: 0;
-          cursor: pointer;
-          border-radius: 0.5rem;
-          padding: 0.2rem;
-
-          &:hover {
-            background-color: $hover-color;
-          }
-          &:active {
-            background-color: $active-color;
-          }
-        }
-      }
-    }
-  }
-
-  .login {
-    cursor: pointer;
-  }
-
-  .logout {
-    cursor: pointer;
-  }
-}
-
 .home-page {
+  position: relative;
+  width: 100%;
+  height: 100%;
   .banner {
     width: 100%;
     height: 10rem;
