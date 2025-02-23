@@ -68,38 +68,38 @@ const GetStarted: React.FC = () => {
           />
         </li>
 
-        <li>
+        {/* <li>
           <p>
             If you're only using default badges, you don't need to include{" "}
             <span className="dark">user=</span> attribute.
           </p>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <p>
             If you're using customized badges, you <b>MUST</b> include{" "}
             <span className="dark">user=</span> attribute followed by your
             GitHub user name. (see above code)
           </p>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <p>
             <span className="dark">user=</span> attribute only accepts a single
             user.
           </p>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <p>
             Others may also use your customized badge by using your user name in{" "}
             <span className="dark">user=</span> attribute.
           </p>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <p>
             However, others can't manage your badge; <b>ONLY YOU</b> can.
             <br />
             (I'm handling this securely; So, you're fine (＾＾)ｂ)
           </p>
-        </li>
+        </li> */}
       </ol>
       <br />
       <h2>Example</h2>

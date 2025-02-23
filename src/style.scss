@@ -365,7 +365,7 @@ body {
 
       min-height: 400px;
       max-height: 800px;
-      aspect-ratio: 1 / 0.61803398;
+      //aspect-ratio: 1 / 0.61803398;
 
       overflow-y: auto;
       scrollbar-width: thin;
@@ -420,7 +420,7 @@ body {
 
       .badge-item {
         display: grid;
-        grid-template-columns: 1fr 40px 40px 100px 40px;
+        grid-template-columns: 1fr 40px 40px 60px 40px;
         //grid-template-rows: 40px;
         gap: 5px;
         width: 100%;
@@ -840,7 +840,7 @@ body {
 
       padding: 0.5rem;
 
-      &:nth-last-child(-n + 2) {
+      &:nth-last-child(-n + 1) {
         border-bottom: none;
       }
 
@@ -970,7 +970,8 @@ body {
         max-width: 800px;
         width: 100%;
         margin: 0 auto;
-        padding: 1rem;
+
+        box-sizing: border-box;
 
         h1,
         h2 {
@@ -1039,7 +1040,7 @@ body {
         }
 
         .image {
-          width: 300px;
+          width: 100%;
           height: auto;
 
           margin-bottom: 0.5rem;
@@ -1057,37 +1058,41 @@ body {
 
         .code-block {
           position: relative;
-          display: flex;
-          flex-direction: row;
-          text-align: left;
+          display: grid;
+          grid-template-columns: 1fr 40px;
+          gap: 0.5rem;
           padding: 0.5rem;
-          //border: 1px red solid;
+
           border-radius: 0.5rem;
           background-color: #242424;
           margin: 0;
           max-width: 600px;
           min-width: 300px;
-          width: 80%;
-          height: 50px;
+          width: 100%;
+          height: auto;
           margin-bottom: 0.5rem;
           box-sizing: border-box;
 
           font-family: "Prompt", serif;
 
           .scroll-container {
-            white-space: nowrap;
+            white-space: pre-wrap;
             overflow-x: auto;
-            height: 2.5rem;
+            height: auto;
             width: 100%;
-            margin-right: 0.5rem;
+
+            word-wrap: break-word;
+            overflow-wrap: break-word;
 
             scrollbar-width: thin;
             scrollbar-color: gray transparent;
           }
 
           img {
+            width: 100%;
             border-radius: 0.5rem;
             padding: 0.3rem;
+            box-sizing: border-box;
             &:hover {
               background-color: $hover-color;
             }
@@ -1102,15 +1107,16 @@ body {
           background-color: #242424;
           border-radius: 0.5rem;
           padding: 0 0.5rem;
+
+          word-break: break-all;
+          white-space: normal;
         }
 
         .end-of-content {
           border: 3px transparent solid;
         }
       }
-      position: relative;
-      display: flex;
-      flex-direction: column;
+
       // border: 1px red solid;
     }
   }

@@ -56,6 +56,12 @@
       &::after {
         display: none;
       }
+
+      .badge-item {
+        &:nth-last-child(-n + 2) {
+          border-bottom: none;
+        }
+      }
     }
   }
 }

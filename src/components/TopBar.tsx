@@ -106,7 +106,7 @@ const TopBar: React.FC = () => {
           <img src={sd_logo_pic} alt="logo" />
         </div>
       </div>
-      <div className="stuffs">TopBar</div>
+      <div className="stuffs"></div>
       <div
         className="profile-wrapper"
         onMouseEnter={handleDropdownMouseEnter}
