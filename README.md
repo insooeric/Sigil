@@ -1,7 +1,7 @@
 <div align="center">
   <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
-    <img src="./assets/logo_icons.svg" alt="Banner" width="100">
-    <img src="./assets/logo_postfix_icons.svg" alt="Banner" width="100">
+    <img src="./assets/logo_icon.svg" alt="Banner" width="100">
+    <img src="./assets/logo_postfix_icon.svg" alt="Banner" width="100">
   </div>
 </div>
 
@@ -9,8 +9,8 @@
 <h3 align="center">Show your skills with badges or custom your own one!</h3>
 <hr>
 
-## DEPLOYMENT LINK! => [Sigil](https://sigilbadge.vercel.app/)
-#### Backend code? => [Sigil Backend](https://github.com/insooeric/GithubBadges-Backend)
+## DEPLOYMENT LINK! => [Stemma](https://stemma.vercel.app/)
+#### Backend code? => [Stemma Backend](https://github.com/insooeric/GithubBadges-Backend)
 # Docs
 
 - [Example](#example)
