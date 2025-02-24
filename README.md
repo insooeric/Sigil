@@ -1,7 +1,7 @@
 <div align="center">
   <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
-    <img src="./assets/logo_icon.svg" alt="Banner" width="100">
-    <img src="./assets/logo_postfix_icon.svg" alt="Banner" width="100">
+    <img src="./assets/logo_icons.svg" alt="Banner" width="100">
+    <img src="./assets/logo_postfix_icons.svg" alt="Banner" width="100">
   </div>
 </div>
 
