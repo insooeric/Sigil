@@ -5,9 +5,9 @@ const HomePage: React.FC = () => {
     <div className="home-page">
       <div className="banner">
         <img src={home_banner} alt="Home Banner" />
-        <div className="title">Badge Hub</div>
+        <div className="title">Sigil</div>
       </div>
-      <div className="slogan">Make custom badge and use it!</div>
+      <div className="slogan">Let others know your geekness!</div>
       <br />
     </div>
   );

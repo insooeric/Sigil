@@ -10,7 +10,7 @@ const FooterBar: React.FC = () => {
         <div className="profile-card">
           <div className="name-field">
             <img src={profileImg} />
-            Eric Son
+            Insoo Son
           </div>
           <div className="email-field">insooeric.son@gmail.com</div>
           <div className="links-field">

@@ -10,7 +10,8 @@ const Custombadge: React.FC = () => {
       </p>
       <p>
         <span className="alert">
-          NOTE that GitHub account for login is required for custom badges!
+          NOTE that logging in with GitHub account is required for custom
+          badges!
         </span>
       </p>
       <p>You can do following actions:</p>

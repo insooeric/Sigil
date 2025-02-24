@@ -5,7 +5,7 @@ import { RootState } from "@/redux/store";
 import { setUser, clearUser } from "@/redux/authSlice";
 import unverified_person_pic from "@/img/unverified_person_pic.png";
 import verified_person_pic from "@/img/verified_person_pic.png";
-import sd_logo_pic from "@/img/sd_logo_pic.png";
+import logo_icon from "@/img/logo_icon.svg";
 import MenuToggle from "./MenuToggle";
 
 const TopBar: React.FC = () => {
@@ -103,7 +103,7 @@ const TopBar: React.FC = () => {
           <MenuToggle />
         </div>
         <div className="nav-item">
-          <img src={sd_logo_pic} alt="logo" />
+          <img src={logo_icon} alt="logo" />
         </div>
       </div>
       <div className="stuffs"></div>

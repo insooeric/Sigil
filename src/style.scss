@@ -96,11 +96,28 @@ body {
 
   width: 100%;
 
-  img.logo {
+  .logo-container {
     width: 100%;
-    padding: 0.5rem 0;
-    padding-right: 0.5rem;
+    height: 50px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.5rem;
+
     box-sizing: border-box;
+
+    img.logo {
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    span {
+      font-weight: bold;
+      font-size: 1.6rem;
+    }
   }
 
   ul {
@@ -151,6 +168,10 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
+
+      img {
+        width: 80%;
+      }
     }
   }
 
