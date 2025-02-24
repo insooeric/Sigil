@@ -1,16 +1,16 @@
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/banner_light.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/banner_dark.svg">
-    <img src="./assets/banner_light.svg" alt="Banner" width="800">
-  </picture>
-</p>
+<div align="center">
+  <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+    <img src="./assets/logo_icon.svg" alt="Banner" width="100">
+    <img src="./assets/logo_postfix_icon.svg" alt="Banner" width="100">
+  </div>
+</div>
+
 
 <h3 align="center">Show your skills with badges or custom your own one!</h3>
 <hr>
 
-## DEPLOYMENT LINK! => [Badge Hub](https://badgehub.vercel.app/)
-#### Backend code? => [Badge Hub Backend](https://github.com/insooeric/GithubBadges-Backend)
+## DEPLOYMENT LINK! => [Sigil](https://sigilbadge.vercel.app/)
+#### Backend code? => [Sigil Backend](https://github.com/insooeric/GithubBadges-Backend)
 # Docs
 
 - [Example](#example)
