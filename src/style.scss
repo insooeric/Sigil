@@ -105,18 +105,12 @@ body {
     align-items: center;
     justify-content: center;
 
-    padding: 0.5rem;
-
     box-sizing: border-box;
 
-    img.logo {
-      height: 100%;
-      box-sizing: border-box;
-    }
+    padding: 0.5rem;
 
-    span {
-      font-weight: bold;
-      font-size: 1.6rem;
+    img.logo {
+      height: 80%;
     }
   }
 

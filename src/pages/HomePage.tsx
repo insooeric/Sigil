@@ -5,7 +5,7 @@ const HomePage: React.FC = () => {
     <div className="home-page">
       <div className="banner">
         <img src={home_banner} alt="Home Banner" />
-        <div className="title">Sigil</div>
+        <div className="title">Stemma</div>
       </div>
       <div className="slogan">Let others know your geekness!</div>
       <br />
