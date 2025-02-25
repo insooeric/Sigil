@@ -55,14 +55,14 @@ const GridBadges: React.FC = () => {
       </p>
       <div className="code-block">
         <div className="scroll-container">
-          https://githubbadges.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs
+          https://stemma.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs
         </div>
         <img
           alt="Copy"
           src={copy_icon}
           onClick={() =>
             handleCopyClick(
-              "https://githubbadges.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs"
+              "https://stemma.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs"
             )
           }
         />
@@ -70,7 +70,7 @@ const GridBadges: React.FC = () => {
       <img
         className="image"
         alt="Badge Gridding Example"
-        src="https://githubbadges.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs"
+        src="https://stemma.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs"
       />
       <br />
       <h2>Rows</h2>
@@ -85,14 +85,14 @@ const GridBadges: React.FC = () => {
       </p>
       <div className="code-block">
         <div className="scroll-container">
-          https://githubbadges.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&row=2
+          https://stemma.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&row=2
         </div>
         <img
           alt="Copy"
           src={copy_icon}
           onClick={() =>
             handleCopyClick(
-              "https://githubbadges.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&row=2"
+              "https://stemma.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&row=2"
             )
           }
         />
@@ -100,7 +100,7 @@ const GridBadges: React.FC = () => {
       <img
         className="image"
         alt="Badge Gridding Example"
-        src="https://githubbadges.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&row=2"
+        src="https://stemma.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&row=2"
       />
       <br />
       <h2>Columns</h2>
@@ -115,14 +115,14 @@ const GridBadges: React.FC = () => {
       </p>
       <div className="code-block">
         <div className="scroll-container">
-          https://githubbadges.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&col=2
+          https://stemma.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&col=2
         </div>
         <img
           alt="Copy"
           src={copy_icon}
           onClick={() =>
             handleCopyClick(
-              "https://githubbadges.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&col=2"
+              "https://stemma.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&col=2"
             )
           }
         />
@@ -130,7 +130,7 @@ const GridBadges: React.FC = () => {
       <img
         className="image"
         alt="Badge Gridding Example"
-        src="https://githubbadges.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&col=2"
+        src="https://stemma.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&col=2"
       />
       <br />
       <h2>Fit content</h2>
@@ -147,14 +147,14 @@ const GridBadges: React.FC = () => {
       </p>
       <div className="code-block">
         <div className="scroll-container">
-          https://githubbadges.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&row=2&fit=true
+          https://stemma.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&row=2&fit=true
         </div>
         <img
           alt="Copy"
           src={copy_icon}
           onClick={() =>
             handleCopyClick(
-              "https://githubbadges.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&row=2&fit=true"
+              "https://stemma.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&row=2&fit=true"
             )
           }
         />
@@ -162,7 +162,7 @@ const GridBadges: React.FC = () => {
       <img
         className="image"
         alt="Badge Gridding Example"
-        src="https://githubbadges.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&row=2&fit=true"
+        src="https://stemma.onrender.com/api/badge?user=insooeric&badge=cat,readme_i,readme_do,readme_full_stack,readme_development,javascript,cs&row=2&fit=true"
       />
       <br />
       <p>

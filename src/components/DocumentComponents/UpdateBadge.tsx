@@ -1,7 +1,7 @@
 import React from "react";
-import description6_pic from "@/img/description6_pic.png";
-import description7_pic from "@/img/description7_pic.png";
-import description8_pic from "@/img/description8_pic.png";
+import instruction1_pic from "@/img/documentation/update_badges/instruction1_pic.png";
+import instruction2_pic from "@/img/documentation/update_badges/instruction2_pic.png";
+import instruction3_pic from "@/img/documentation/update_badges/instruction3_pic.png";
 import edit_icon from "@/img/edit_icon.svg";
 
 const UpdateBadge: React.FC = () => {
@@ -14,15 +14,15 @@ const UpdateBadge: React.FC = () => {
             In your <b>Dashboard</b> tab, click{" "}
             <img className="icon" src={edit_icon} alt="edit_icon" /> icon.
           </p>
-          <img className="image" src={description6_pic} />
+          <img className="image" src={instruction1_pic} />
         </li>
         <li>
           <p>Change name, then press "Save" button</p>
-          <img className="image" src={description7_pic} />
+          <img className="image" src={instruction2_pic} />
         </li>
         <li>
           <p>Now, dashboard displays the badge with new name</p>
-          <img className="image" src={description8_pic} />
+          <img className="image" src={instruction3_pic} />
         </li>
       </ol>
       <p>

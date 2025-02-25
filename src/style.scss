@@ -342,8 +342,8 @@ body {
     margin-top: 2rem;
 
     img {
-      max-width: 200px;
-      min-width: 100px;
+      max-width: 100px;
+      min-width: 60px;
       width: 20vw;
       border-radius: 50%;
       border: 2px white solid;
@@ -958,12 +958,13 @@ body {
 
       box-sizing: border-box;
       padding: 1rem;
+      margin-top: 1rem;
 
       overflow-y: auto;
       scrollbar-width: thin;
       scrollbar-color: gray transparent;
 
-      background-color: rgb(58, 58, 58);
+      // background-color: rgb(58, 58, 58);
 
       border-radius: 1rem;
       .content {
@@ -1057,6 +1058,7 @@ body {
         .image {
           width: 100%;
           height: auto;
+          max-width: 300px;
 
           margin-bottom: 0.5rem;
 
@@ -1079,7 +1081,7 @@ body {
           padding: 0.5rem;
 
           border-radius: 0.5rem;
-          background-color: #242424;
+          background-color: black;
           margin: 0;
           max-width: 600px;
           min-width: 300px;
@@ -1119,7 +1121,7 @@ body {
 
         span.dark {
           font-family: "Prompt", serif;
-          background-color: #242424;
+          background-color: black;
           border-radius: 0.5rem;
           padding: 0 0.5rem;
 

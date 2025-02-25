@@ -1,6 +1,6 @@
 import React from "react";
-import description9_pic from "@/img/description9_pic.png";
-import description10_pic from "@/img/description10_pic.png";
+import instruction1_pic from "@/img/documentation/delete_badges/instruction1_pic.png";
+import instruction2_pic from "@/img/documentation/delete_badges/instruction2_pic.png";
 import delete_icon from "@/img/delete_icon.svg";
 
 const RemoveBadge: React.FC = () => {
@@ -13,11 +13,11 @@ const RemoveBadge: React.FC = () => {
             In your <b>Dashboard</b> tab, click{" "}
             <img className="icon" src={delete_icon} alt="delete_icon" /> icon
           </p>
-          <img className="image" src={description9_pic} />
+          <img className="image" src={instruction1_pic} />
         </li>
         <li>
           <p>Then, it's gone!</p>
-          <img className="image" src={description10_pic} />
+          <img className="image" src={instruction2_pic} />
         </li>
       </ol>
 

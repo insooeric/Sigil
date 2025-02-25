@@ -1,5 +1,5 @@
 import React from "react";
-import description11_pic from "@/img/description11_pic.png";
+import default_badges_pic from "@/img/documentation/default_badges/default_badges_pic.png";
 import copy_icon from "@/img/copy_icon.svg";
 
 const Default: React.FC = () => {
@@ -12,9 +12,9 @@ const Default: React.FC = () => {
       </p>
       <p>
         Click <img className="icon" src={copy_icon} alt="copy_icon" /> icon to
-        copy url.
+        copy url of default badges.
       </p>
-      <img className="image" src={description11_pic} />
+      <img className="image" src={default_badges_pic} />
 
       <div className="end-of-content" />
     </div>

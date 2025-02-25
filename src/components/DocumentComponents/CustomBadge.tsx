@@ -1,5 +1,5 @@
 import React from "react";
-import description2_pic from "@/img/description2_pic.png";
+import dashboard_pic from "@/img/documentation/custom_badges/dashboard_pic.png";
 
 const Custombadge: React.FC = () => {
   return (
@@ -14,13 +14,14 @@ const Custombadge: React.FC = () => {
           badges!
         </span>
       </p>
-      <p>You can do following actions:</p>
+
+      <img className="image" src={dashboard_pic} />
+      <p>In here, you can do following actions:</p>
       <ul>
         <li>Add badge.</li>
         <li>Update badge.</li>
         <li>Delete badge.</li>
       </ul>
-      <img className="image" src={description2_pic} />
       <p>
         For further more details, please read <b>Add Badge</b>,{" "}
         <b>Update Badge</b>, <b>Delete Badge</b> in this documentation.
