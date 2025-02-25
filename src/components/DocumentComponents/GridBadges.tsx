@@ -50,6 +50,11 @@ const GridBadges: React.FC = () => {
       </p>
       <p>By default, it will display badges with a single row.</p>
       <p>
+        Additionally, if you add <span className="dark">javascript</span> which
+        is one of the default badges, it will automatically look for the default
+        badge and implement it.
+      </p>
+      <p>
         For example,{" "}
         <span className="dark">...badge=my_custom_badge, javascript,...</span>
       </p>
@@ -135,7 +140,7 @@ const GridBadges: React.FC = () => {
       <br />
       <h2>Fit content</h2>
       <p>
-        In case you want to fit badges in grid, you can use{" "}
+        Optionally, if you want to fit badges in grid, you can use{" "}
         <span className="dark">fit=</span> property.
       </p>
       <p>

@@ -1,6 +1,7 @@
 import React from "react";
 import example_pic from "@/img/documentation/get_started/example_pic.png";
 import copy_icon from "@/img/copy_icon.svg";
+import logo_full_sd_icon from "@/img/documentation/get_started/logo_full_sd_icon.svg";
 
 const GetStarted: React.FC = () => {
   const handleCopyClick = (badgeURL: string) => {
@@ -18,7 +19,7 @@ const GetStarted: React.FC = () => {
     <div className="inner-content">
       <h1>Introduction</h1>
       <p>
-        <b>WELCOME</b> to Stemma!
+        <b>WELCOME</b> to <img className="app-name" src={logo_full_sd_icon} />!
       </p>
       <p>
         This application allows <b>GitHub users</b> to display cool{" "}
