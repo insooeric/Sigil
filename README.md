@@ -9,8 +9,8 @@
 <h3 align="center">Show your skills with badges or custom your own one!</h3>
 <hr>
 
-## DEPLOYMENT LINK! => [Sigil](https://sigilbadge.vercel.app/)
-#### Backend code? => [Sigil Backend](https://github.com/insooeric/GithubBadges-Backend)
+## DEPLOYMENT LINK! => [Stemma](https://stemma.vercel.app/)
+#### Backend code? => [Stemma Backend](https://github.com/insooeric/GithubBadges-Backend)
 # Docs
 
 - [Example](#example)
